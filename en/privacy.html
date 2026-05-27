@@ -38,7 +38,7 @@
 </head>
 <body>
   <h1>Privacy Policy - mizu:log</h1>
-  <p><small>Last updated: May 19, 2026</small></p>
+  <p><small>Last updated: May 27, 2026</small></p>
 
   <p>
     This Privacy Policy describes how the mobile application "mizu:log" (the "App")
@@ -56,8 +56,8 @@
   </ul>
   <p><strong>Important:</strong></p>
   <p>
-    All user data is stored locally on your device (e.g., using local databases such as Hive).
-    This information is never transmitted to or stored on external servers.
+    This data is primarily stored locally on your device (e.g., using local databases such as Hive).
+    However, when you use AI features (plant identification or diagnosis), photo data is transmitted to third-party servers (see Section 1-5).
   </p>
 
   <h3>1-2. Information collected by third-party services (Advertising)</h3>
@@ -93,7 +93,8 @@
   </ul>
   <p>
     This information is used to understand app usage, improve quality, and investigate issues.
-    The App does not transmit the contents of plant photos, diary text, or note text to servers independently operated by the developer.
+    The App does not transmit the contents of plant photos, diary text, or note text to servers for analytics purposes.
+    However, when using AI features, photo data is transmitted to servers (see Section 1-5).
     However, some user-provided information, such as plant IDs or plant names, may be sent to Google as Firebase Analytics event parameters.
     For more details, please refer to the following Google policies:
   </p>
@@ -113,6 +114,42 @@
     The App tracks impressions and taps on recommended items through Firebase Analytics (see Section 1-3).
   </p>
 
+  <h3>1-5. Data Transmission for AI Features</h3>
+  <p>
+    The App provides AI plant identification and AI plant diagnosis features.
+    When you use these features, the following information is transmitted to servers:
+  </p>
+  <ul>
+    <li>Plant photo data (for identification or diagnosis analysis)</li>
+    <li>Supplementary information such as plant name, watering interval, and care history (to improve diagnosis accuracy)</li>
+  </ul>
+  <p>
+    This information is sent via Firebase Cloud Functions (managed by the developer) to the OpenAI API provided by OpenAI, LLC,
+    where it is used to generate identification or diagnosis results.
+    Data sent to the OpenAI API is not used for model training, in accordance with OpenAI's API data usage policies.
+  </p>
+  <p>
+    The following information is stored on Firebase (Google LLC) in connection with AI features:
+  </p>
+  <ul>
+    <li>An anonymous user identifier (UID) generated through Firebase anonymous authentication</li>
+    <li>AI feature usage counts and timestamps</li>
+    <li>AI diagnosis job information (status and text results)</li>
+  </ul>
+  <p>
+    This information is used to manage usage limits and deliver diagnosis results.
+    Anonymous authentication does not collect personal information such as email addresses or passwords.
+  </p>
+  <ul>
+    <li><a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener noreferrer">OpenAI API Data Usage Policies</a></li>
+  </ul>
+
+  <h3>1-6. In-App Purchase Verification</h3>
+  <p>
+    When you make a one-time purchase in the App, your purchase receipt is sent via Firebase Cloud Functions
+    to Apple's servers to verify the transaction. The verification result (purchase status) is stored on Firebase.
+  </p>
+
   <h2>2. Purpose of Use</h2>
   <p>We use the collected information for the following purposes:</p>
   <ol>
@@ -121,6 +158,8 @@
     <li>To analyze app usage and improve features</li>
     <li>To deliver and optimize advertisements</li>
     <li>To recommend items useful for plant care</li>
+    <li>To provide AI-powered plant identification and diagnosis results</li>
+    <li>To verify in-app purchases and manage purchase status</li>
   </ol>
 
   <h2>3. Data Sharing</h2>
@@ -131,13 +170,14 @@
     However, as described above, third-party services such as Google may automatically collect
     certain technical information for advertising purposes.
     Firebase Analytics may also send app usage information to Google for analytics purposes.
+    As described in Section 1-5, photo data may also be sent to OpenAI when using AI features.
     We may also disclose information if required by law.
   </p>
 
   <h2>4. International Data Transfers</h2>
   <p>
-    Information collected through third-party services such as Google AdMob and Firebase Analytics
-    may be processed by Google LLC, its affiliates, advertising partners, and service providers
+    Information collected through third-party services such as Google AdMob, Firebase Analytics, and the OpenAI API
+    may be processed by Google LLC, OpenAI, LLC, their affiliates, advertising partners, and service providers
     in countries or regions outside your country of residence.
     Please refer to the privacy policies of those third-party service providers for details.
   </p>
@@ -178,6 +218,8 @@
     The App is intended to assist with plant care.
     The developer is not responsible for any damages, including plant loss,
     caused by missed notifications, app errors, or data loss.
+    AI features (plant identification and diagnosis) provide reference information only and do not guarantee accuracy or completeness.
+    The developer is not responsible for any damages to plants resulting from actions taken based on AI identification or diagnosis results.
   </p>
 
   <h2>8. Children's Privacy</h2>
