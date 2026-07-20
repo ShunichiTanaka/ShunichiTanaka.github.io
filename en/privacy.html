@@ -38,7 +38,7 @@
 </head>
 <body>
   <h1>Privacy Policy - mizu:log</h1>
-  <p><small>Last updated: May 27, 2026</small></p>
+  <p><small>Last updated: July 20, 2026</small></p>
 
   <p>
     This Privacy Policy describes how the mobile application "mizu:log" (the "App")
@@ -53,6 +53,7 @@
     <li>Text information such as plant names, notes, and area names</li>
     <li>Watering history (dates, notes, etc.)</li>
     <li>Plant photos (stored locally or taken via the camera)</li>
+    <li>Bluetooth soil sensor registration data and measurement data (such as moisture, temperature, light, nutrients (EC), and timestamps)</li>
   </ul>
   <p><strong>Important:</strong></p>
   <p>
@@ -122,6 +123,7 @@
   <ul>
     <li>Plant photo data (for identification or diagnosis analysis)</li>
     <li>Supplementary information such as plant name, watering interval, and care history (to improve diagnosis accuracy)</li>
+    <li>Same-day Bluetooth soil sensor measurements (moisture, temperature, light, nutrients (EC), and timestamp), only when a sensor is registered</li>
   </ul>
   <p>
     This information is sent via Firebase Cloud Functions (managed by the developer) to the OpenAI API provided by OpenAI, LLC,
@@ -135,6 +137,7 @@
     <li>An anonymous user identifier (UID) generated through Firebase anonymous authentication</li>
     <li>AI feature usage counts and timestamps</li>
     <li>AI diagnosis job information (status and text results)</li>
+    <li>Part of the supplementary information sent for AI diagnosis (plant information, care history, and sensor data)</li>
   </ul>
   <p>
     This information is used to manage usage limits and deliver diagnosis results.
@@ -185,6 +188,10 @@
   <h2>5. Data Retention</h2>
   <p>
     Data stored within the App remains on your device until you delete it or uninstall the App.
+  </p>
+  <p>
+    Bluetooth soil sensor registration data and measurement history are also stored locally on your device
+    until you delete them or uninstall the App.
   </p>
   <p>
     Information collected by third-party services such as Google AdMob and Firebase Analytics
