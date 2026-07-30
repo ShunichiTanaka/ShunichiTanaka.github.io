@@ -51,6 +51,38 @@
       font-weight: bold;
       margin-top: 16px;
     }
+    .store-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+    }
+    .store-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: auto;
+      line-height: 0;
+    }
+    .store-badge {
+      display: block;
+      width: auto;
+      height: auto;
+    }
+    .store-badge--app {
+      height: 54px;
+    }
+    .store-badge--google {
+      height: 75px;
+    }
+    .store-badge--app,
+    .store-badge--google {
+      max-width: none;
+      max-height: none;
+      width: auto;
+    }
   </style>
 </head>
 <body>
@@ -117,6 +149,7 @@
     <li>エリアごとの整理（リビング・寝室など）</li>
     <li>水やりが必要な順に自動並び替え</li>
     <li>水やり履歴の管理</li>
+    <li>土壌センサーの情報も参考にしながら管理</li>
     <li>写真・メモの保存</li>
     <li>ホーム画面ウィジェットで水やり予定を確認（iOS）</li>
     <li>オフライン対応（アカウント不要）</li>
@@ -138,12 +171,17 @@
 
   <h2>はじめる</h2>
   <p>
-    mizu:logをダウンロードして、今日から植物の水やり管理を始めましょう。
+    mizu:logをダウンロードして、今日から植物の水やり管理を始めましょう。iPhoneとAndroidの両方でご利用いただけます。
   </p>
 
-  <p class="cta">
-    → <a href="#">App Storeでダウンロード</a>
-  </p>
+  <div class="store-links cta">
+    <a href="#" aria-label="App Storeでダウンロード">
+      <img class="store-badge store-badge--app" src="./assets/app-store-badge-og-twitter.jpg" alt="Download on the App Store" />
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.mizulog.mizu_log" target="_blank" rel="noopener noreferrer" aria-label="Google Playでダウンロード">
+      <img class="store-badge store-badge--google" src="./assets/en_badge_web_generic.png" alt="Get it on Google Play" />
+    </a>
+  </div>
 
   <h2>サポート</h2>
   <p>
@@ -159,4 +197,3 @@
 
 </body>
 </html>
-
