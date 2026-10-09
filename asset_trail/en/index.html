@@ -2,92 +2,336 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="AssetTrail is a private net worth tracker for recording daily assets and understanding your financial journey." />
-  <meta property="og:title" content="AssetTrail | Private Net Worth Tracker" />
-  <meta property="og:description" content="Record your assets, see meaningful trends, and keep your financial data on your device." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>AssetTrail – Private Net Worth Tracker for iPhone</title>
+  <meta name="description" content="AssetTrail is a simple personal asset management app for iPhone. Log your total assets in seconds and see your net worth trend with line, weekly, and monthly charts. No bank linking — your records stay on your device." />
+  <link rel="canonical" href="https://shunichitanaka.github.io/asset_trail/en/" />
+  <link rel="alternate" hreflang="ja" href="https://shunichitanaka.github.io/asset_trail/" />
+  <link rel="alternate" hreflang="en" href="https://shunichitanaka.github.io/asset_trail/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://shunichitanaka.github.io/asset_trail/en/" />
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e151b" media="(prefers-color-scheme: dark)" />
+  <meta name="apple-itunes-app" content="app-id=6816013644" />
+  <link rel="icon" type="image/png" href="../images/app-icon.png" />
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+
   <meta property="og:type" content="website" />
-  <title>AssetTrail | Private Net Worth Tracker</title>
-  <style>
-    :root { color-scheme: light dark; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", system-ui, sans-serif; color: #183147; background: #f5f8fa; line-height: 1.7; }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(100% - 40px, 1020px); margin: 0 auto; }
-    header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
-    .brand { color: #10978f; font-size: 19px; font-weight: 750; letter-spacing: -.04em; }
-    .nav { display: flex; gap: 18px; color: #64788a; font-size: 14px; }
-    .nav a:hover, .text-link:hover { color: #10978f; }
-    main { padding: 46px 0 76px; }
-    .hero { display: grid; grid-template-columns: 1.08fr .92fr; gap: 54px; align-items: center; }
-    .eyebrow { margin: 0 0 14px; color: #159b93; font-size: 13px; font-weight: 700; letter-spacing: .12em; }
-    h1 { max-width: 11em; margin: 0; color: #152e43; font-size: clamp(40px, 7vw, 70px); line-height: 1.06; letter-spacing: -.075em; }
-    .lead { max-width: 31em; margin: 22px 0 0; color: #607487; font-size: 17px; line-height: 1.85; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .button { display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 14px; background: #159b93; color: #fff; font-size: 14px; font-weight: 700; box-shadow: 0 8px 18px rgba(21, 155, 147, .2); }
-    .button:hover { background: #0d817a; }
-    .text-link { display: inline-flex; align-items: center; min-height: 46px; padding: 0 8px; color: #536c7e; font-size: 14px; font-weight: 650; }
-    .snapshot { padding: 22px; border: 1px solid #e2ecef; border-radius: 30px; background: #fff; box-shadow: 0 18px 42px rgba(27, 61, 83, .09); }
-    .snapshot-top { display: flex; justify-content: space-between; color: #8192a0; font-size: 12px; }
-    .snapshot-label { margin: 20px 0 4px; color: #8495a4; font-size: 13px; }
-    .amount { color: #152e43; font-size: clamp(30px, 5vw, 43px); font-weight: 720; letter-spacing: -.06em; }
-    .amount small { font-size: .44em; font-weight: 600; letter-spacing: 0; }
-    .metric { display: flex; gap: 16px; margin-top: 20px; padding-top: 16px; border-top: 1px solid #e9eff2; }
-    .metric div { flex: 1; color: #7b8e9d; font-size: 11px; }
-    .metric strong { display: block; margin-top: 4px; color: #159b93; font-size: 17px; }
-    .chart { display: flex; align-items: end; gap: 7px; height: 74px; margin-top: 24px; padding: 10px 4px 0; border-top: 1px solid #e9eff2; }
-    .bar { width: 100%; border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg, #75d2ca, #159b93); opacity: .92; }
-    .features, .details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 78px; }
-    .details { grid-template-columns: repeat(2, 1fr); margin-top: 62px; }
-    .feature, .detail { min-height: 178px; padding: 24px; border: 1px solid #e2ecef; border-radius: 22px; background: rgba(255,255,255,.78); }
-    .detail { min-height: 0; }
-    .feature-number { color: #159b93; font-size: 13px; font-weight: 750; letter-spacing: .08em; }
-    h2 { margin: 19px 0 8px; color: #1b3449; font-size: 20px; letter-spacing: -.03em; }
-    .detail h2 { margin-top: 0; }
-    .feature p, .detail p { margin: 0; color: #6d8090; font-size: 14px; line-height: 1.7; }
-    .closing { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 50px; padding: 30px; border-radius: 24px; background: #173b50; color: #fff; }
-    .closing h2 { margin: 0; color: #fff; font-size: 22px; }
-    .closing p { margin: 6px 0 0; color: #c2d5dc; font-size: 14px; }
-    .closing .button { flex: none; background: #72d7ce; color: #113849; box-shadow: none; }
-    footer { padding: 22px 0 34px; color: #8495a4; font-size: 13px; }
-    footer a { color: #087f7a; }
-    @media (prefers-color-scheme: dark) { body { color: #dce9ee; background: #101a21; } h1, h2, .amount { color: #f1f7f8; } .lead, .feature p, .detail p { color: #a7bbc5; } .nav, .text-link, footer { color: #adc1ca; } .snapshot, .feature, .detail { border-color: #29404b; background: #172730; box-shadow: none; } .snapshot-top, .snapshot-label, .metric div { color: #91a9b5; } .metric, .chart { border-color: #29404b; } .closing { background: #1d4856; } }
-    @media (max-width: 700px) { .hero, .details { grid-template-columns: 1fr; gap: 34px; } main { padding-top: 28px; } .features { grid-template-columns: 1fr; margin-top: 52px; } .feature { min-height: 0; } .closing { align-items: flex-start; flex-direction: column; } .nav { gap: 10px; font-size: 12px; } }
-  </style>
+  <meta property="og:site_name" content="AssetTrail" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+  <meta property="og:url" content="https://shunichitanaka.github.io/asset_trail/en/" />
+  <meta property="og:title" content="AssetTrail – Your net worth, one day at a time." />
+  <meta property="og:description" content="Log your total assets in seconds and watch the trend take shape. A private net worth tracker for iPhone — no bank linking required." />
+  <meta property="og:image" content="https://shunichitanaka.github.io/asset_trail/images/og-en.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AssetTrail – Your net worth, one day at a time." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AssetTrail – Your net worth, one day at a time." />
+  <meta name="twitter:description" content="Log your total assets in seconds and watch the trend take shape. A private net worth tracker for iPhone — no bank linking required." />
+  <meta name="twitter:image" content="https://shunichitanaka.github.io/asset_trail/images/og-en.png" />
+  <meta name="twitter:image:alt" content="AssetTrail – Your net worth, one day at a time." />
+
+  <link rel="stylesheet" href="../lp.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "AssetTrail",
+    "operatingSystem": "iOS",
+    "applicationCategory": "FinanceApplication",
+    "inLanguage": ["en", "ja"],
+    "description": "A private net worth tracker. Log your total assets and review the trend with charts and insights.",
+    "url": "https://shunichitanaka.github.io/asset_trail/en/",
+    "downloadUrl": "https://apps.apple.com/jp/app/id6816013644",
+    "image": "https://shunichitanaka.github.io/asset_trail/images/app-icon.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="./">AssetTrail</a>
-      <nav class="nav" aria-label="Primary navigation"><a href="./privacy.html">Privacy</a><a href="./support.html">Support</a></nav>
-    </header>
-    <main>
-      <section class="hero">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./"><img src="../images/app-icon.png" alt="" width="30" height="30" />AssetTrail</a>
+      <nav class="lang" aria-label="Language / 言語">
+        <a href="../" lang="ja" hreflang="ja">日本語</a>
+        <a href="./" lang="en" aria-current="page">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- First view -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
         <div>
-          <p class="eyebrow">PRIVATE NET WORTH TRACKER</p>
-          <h1>Turn daily numbers into a clearer trail.</h1>
-          <p class="lead">AssetTrail is a simple app for recording your assets, seeing meaningful trends, and understanding your financial journey over time.</p>
-          <div class="actions"><a class="button" href="https://apps.apple.com/app/id6816013644">View on the App Store</a><a class="text-link" href="#features">Explore features ↓</a></div>
+          <div class="app-id">
+            <img src="../images/app-icon.png" alt="AssetTrail app icon" width="64" height="64" />
+            <div><strong>AssetTrail</strong><span>Net worth tracker for iPhone</span></div>
+          </div>
+          <h1 id="hero-title">Your net worth,<br /><em>one day at a time.</em></h1>
+          <p class="lead">Log your total assets in seconds. AssetTrail turns each entry into clean, simple charts so you can see how your wealth is trending — no bank linking required.</p>
+          <div class="cta">
+            <a class="badge" href="https://apps.apple.com/jp/app/id6816013644">
+              <img src="../images/app-store-badge-en.svg" alt="Download on the App Store" width="162" height="54" />
+            </a>
+            <span class="cta-note">Free to download<br />Plus is a one-time purchase</span>
+          </div>
+          <ul class="points" aria-label="Highlights">
+            <li>One quick entry a day</li>
+            <li>See your trend at a glance</li>
+            <li>Data stays on your device</li>
+          </ul>
         </div>
-        <aside class="snapshot" aria-label="AssetTrail preview">
-          <div class="snapshot-top"><span>AssetTrail</span><span>As of Sep 28</span></div>
-          <p class="snapshot-label">Total assets</p><div class="amount">$128,450 <small>USD</small></div>
-          <div class="metric"><div>Previous day<strong>+$420</strong></div><div>Month end<strong>+$2,180</strong></div></div>
-          <div class="chart" aria-hidden="true"><span class="bar" style="height:35%"></span><span class="bar" style="height:50%"></span><span class="bar" style="height:43%"></span><span class="bar" style="height:72%"></span><span class="bar" style="height:63%"></span><span class="bar" style="height:88%"></span><span class="bar" style="height:100%"></span></div>
-        </aside>
-      </section>
-      <section id="features" class="features" aria-label="Key features">
-        <article class="feature"><div class="feature-number">01</div><h2>Build a daily record</h2><p>Save your total assets, cash flow, and a note in one simple daily entry.</p></article>
-        <article class="feature"><div class="feature-number">02</div><h2>Understand the trend</h2><p>Review line, weekly, and monthly charts to see how your financial trail changes.</p></article>
-        <article class="feature"><div class="feature-number">03</div><h2>Keep it on your device</h2><p>Your records stay on your device. Export a JSON backup whenever you need one.</p></article>
-      </section>
-      <section class="details">
-        <article class="detail"><h2>More perspective with Plus</h2><p>Unlock monthly insights, custom date ranges, deeper comparisons, shareable reports, and an ad-free experience with a one-time purchase. There is no recurring subscription.</p></article>
-        <article class="detail"><h2>Display it your way</h2><p>Use Japanese or English and choose JPY, USD, EUR, or GBP as your display unit. Currency labels are display-only; AssetTrail does not perform exchange-rate conversion.</p></article>
-      </section>
-      <section class="closing"><div><h2>Small records. A clearer journey.</h2><p>See what your numbers have been telling you over time.</p></div><a class="button" href="https://apps.apple.com/app/id6816013644">Get AssetTrail</a></section>
-    </main>
-    <footer>© AssetTrail · <a href="./privacy.html">Privacy Policy</a> · <a href="mailto:assettrail.info@gmail.com">Contact</a></footer>
-  </div>
+
+        <div class="stage">
+          <div class="phone" role="img" aria-label="AssetTrail home screen preview showing total assets, daily change, a trend chart, and recent entries">
+            <div class="screen" aria-hidden="true">
+              <div class="s-bar"><span class="s-title">AssetTrail</span><span class="s-icons"><i></i><i></i></span></div>
+              <div class="card">
+                <div class="label">Total assets · Oct 9</div>
+                <div class="amount num">$84,620<small>USD</small></div>
+                <div class="delta"><span>vs. yesterday<b class="num">+$310</b></span><span>vs. last month-end<b class="num">+$1,480</b></span></div>
+                <div class="seg"><span class="on">Line</span><span>Weekly</span><span>Monthly</span></div>
+                <svg class="chart" viewBox="0 0 260 112" role="presentation">
+                  <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#74d8cb" stop-opacity=".45"/><stop offset="1" stop-color="#74d8cb" stop-opacity="0"/></linearGradient></defs>
+                  <line class="grid" x1="0" y1="28" x2="260" y2="28"/><line class="grid" x1="0" y1="62" x2="260" y2="62"/><line class="grid" x1="0" y1="96" x2="260" y2="96"/>
+                  <path d="M4 86 L24 80 L44 88 L64 72 L84 76 L104 62 L124 68 L144 54 L164 60 L184 46 L204 50 L224 36 L244 30 L256 22 L256 112 L4 112 Z" fill="url(#ga)"/>
+                  <path class="line" d="M4 86 L24 80 L44 88 L64 72 L84 76 L104 62 L124 68 L144 54 L164 60 L184 46 L204 50 L224 36 L244 30 L256 22"/>
+                  <circle class="dot" cx="256" cy="22" r="4"/>
+                </svg>
+              </div>
+              <div class="rows" style="margin-top:10px">
+                <div class="mini">Thu, Oct 9<b class="num">$84,620</b><em class="num">+$310</em></div>
+                <div class="mini">Wed, Oct 8<b class="num">$84,310</b><em class="num">+$145</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you can do -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h2 id="about-title">Seconds to log.<br />Easy to look back on.</h2>
+          <p class="intro">No accounts to connect, no spreadsheets to maintain. Just enter the total you see today, and AssetTrail builds the bigger picture over time.</p>
+        </div>
+        <ol class="steps">
+          <li><h3>Log your total</h3><p>Pick a date and enter your total assets. Add cash flow or a quick note if you like.</p></li>
+          <li><h3>Watch the trend</h3><p>Switch between line, weekly, and monthly charts to see the ups and downs as one clear path.</p></li>
+          <li><h3>Review with insights</h3><p>Check day-over-day and month-end changes, drawdowns, and monthly gains and losses.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section alt" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">FEATURES</p>
+          <h2 id="features-title">Everything you need. Nothing you don't.</h2>
+          <p class="intro">A focused set of tools for tracking your net worth without the clutter.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+            <h3>Daily entries</h3>
+            <p>One entry per day with your total, cash flow, and a note. Edit anytime from History.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 8-8"/><path d="M15 7h5v5"/></svg></span>
+            <h3>Line, weekly &amp; monthly <span class="tag">Monthly: Plus</span></h3>
+            <p>Zoom out from daily moves to the long-term trend, all on one screen.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <h3>Insights <span class="tag">Some Plus</span></h3>
+            <p>Drawdowns, up and down days, monthly changes, and changes excluding deposits and withdrawals.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 5.1A10 10 0 0 1 12 5c5 0 9 4.5 10 7a13 13 0 0 1-2.6 3.6M6.6 6.6A13 13 0 0 0 2 12c1 2.5 5 7 10 7a9.8 9.8 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></span>
+            <h3>Hide amounts</h3>
+            <p>Tap once to mask amounts as “****” — handy when you check in public.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></span>
+            <h3>Gentle reminders</h3>
+            <p>Choose the days and time. If you've already logged today, you won't be nudged.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+            <h3>Face ID app lock</h3>
+            <p>Require Face ID, Touch ID, or your passcode when the app opens or returns.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></span>
+            <h3>Recurring deposits</h3>
+            <p>Set up monthly contributions once, and they're added automatically when you save.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></span>
+            <h3>Import &amp; backup</h3>
+            <p>Bring in past records from CSV. Export and restore JSON backups whenever you need.</p>
+          </article>
+          <article class="feature">
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+            <h3>English &amp; Japanese, 4 currencies</h3>
+            <p>Choose your language and display currency: USD, EUR, GBP, or JPY.</p>
+          </article>
+        </div>
+        <p class="footnote">Currency is a display label only — AssetTrail doesn't convert exchange rates. Plus unlocks monthly charts, custom date ranges, the up/down day chart, and monthly changes, and removes ads.</p>
+      </div>
+    </section>
+
+    <!-- Use cases -->
+    <section class="section" id="scenes" aria-labelledby="scenes-title">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">USE CASES</p>
+          <h2 id="scenes-title">Made for the way you check in</h2>
+        </div>
+        <div class="scenes">
+          <article class="scene"><span class="k" aria-hidden="true">📅</span><h3>Monthly money check-in</h3><p>Log your balances once a month and instantly see the change since last month-end.</p></article>
+          <article class="scene"><span class="k" aria-hidden="true">📈</span><h3>Track savings &amp; investing</h3><p>Record contributions to see how your assets moved beyond what you put in.</p></article>
+          <article class="scene"><span class="k" aria-hidden="true">🏠</span><h3>Household overview</h3><p>Log a combined household total to keep an eye on the big picture together.</p></article>
+          <article class="scene"><span class="k" aria-hidden="true">🧭</span><h3>Progress toward a goal</h3><p>The longer you log, the clearer your pace becomes — dips and recoveries included.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screens -->
+    <section class="section alt" id="screens" aria-labelledby="screens-title">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">SCREENS</p>
+          <h2 id="screens-title">Calm by design</h2>
+          <p class="intro">Generous spacing and a quiet interface make your daily check-in feel effortless. Dark Mode included.</p>
+        </div>
+        <ul class="gallery">
+          <li>
+            <figure>
+              <div class="phone" role="img" aria-label="Home screen preview: total assets with a weekly chart">
+                <div class="screen" aria-hidden="true">
+                  <div class="s-bar"><span class="s-title">Home</span><span class="s-icons"><i></i></span></div>
+                  <div class="card">
+                    <div class="label">Total assets</div>
+                    <div class="amount num">$84,620<small>USD</small></div>
+                    <div class="delta"><span>vs. last week<b class="num">+$720</b></span></div>
+                    <div class="seg"><span>Line</span><span class="on">Weekly</span><span>Monthly</span></div>
+                    <svg class="chart" viewBox="0 0 220 120" role="presentation">
+                      <line class="grid" x1="0" y1="30" x2="220" y2="30"/><line class="grid" x1="0" y1="70" x2="220" y2="70"/><line class="grid" x1="0" y1="110" x2="220" y2="110"/>
+                      <g fill="#74d8cb" stroke="#168c83" stroke-width="1.5">
+                        <line x1="18" y1="70" x2="18" y2="104" /><rect x="11" y="78" width="14" height="20" rx="2"/>
+                        <line x1="52" y1="62" x2="52" y2="96" /><rect x="45" y="68" width="14" height="22" rx="2"/>
+                      </g>
+                      <g fill="#ff929e" stroke="#c4555f" stroke-width="1.5"><line x1="86" y1="60" x2="86" y2="92" /><rect x="79" y="66" width="14" height="18" rx="2"/></g>
+                      <g fill="#74d8cb" stroke="#168c83" stroke-width="1.5">
+                        <line x1="120" y1="44" x2="120" y2="86" /><rect x="113" y="52" width="14" height="28" rx="2"/>
+                        <line x1="154" y1="34" x2="154" y2="64" /><rect x="147" y="40" width="14" height="18" rx="2"/>
+                        <line x1="188" y1="16" x2="188" y2="50" /><rect x="181" y="22" width="14" height="22" rx="2"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <div class="card"><div class="label">Oct 6 – Oct 9</div><b class="num" style="font-size:14px">$84,620</b> <span class="num" style="color:var(--teal);font-weight:650">+$720</span></div>
+                </div>
+              </div>
+              <figcaption><strong>Home</strong><span>Your total and trend at a glance</span></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="phone" role="img" aria-label="Insights screen preview: monthly change bars and a chart of up and down days">
+                <div class="screen" aria-hidden="true">
+                  <div class="s-bar"><span class="s-title">Insights</span></div>
+                  <div class="card">
+                    <div class="label">Monthly change</div>
+                    <div class="bars-wrap"><div class="bars"><span style="height:24px"></span><span style="height:36px"></span><span class="neg" style="height:18px"></span><span style="height:30px"></span><span style="height:42px"></span><span class="neg" style="height:10px"></span><span style="height:28px"></span></div></div>
+                  </div>
+                  <div class="card">
+                    <div class="label" style="margin-bottom:8px">Up &amp; down days</div>
+                    <div class="donut">
+                      <svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="15.9" fill="none" stroke="var(--raised)" stroke-width="6"/><circle cx="21" cy="21" r="15.9" fill="none" stroke="#168c83" stroke-width="6" stroke-dasharray="60 40" stroke-dashoffset="25"/><circle cx="21" cy="21" r="15.9" fill="none" stroke="#e58b94" stroke-width="6" stroke-dasharray="30 70" stroke-dashoffset="65"/></svg>
+                      <div class="legend"><span><i style="background:#168c83"></i>Up <b>18 days</b></span><span><i style="background:#e58b94"></i>Down <b>9 days</b></span><span><i style="background:var(--border)"></i>Flat <b>3 days</b></span></div>
+                    </div>
+                  </div>
+                  <div class="card"><div class="label">Max drawdown</div><b class="num" style="font-size:18px;color:var(--negative)">-4.2%</b></div>
+                </div>
+              </div>
+              <figcaption><strong>Insights</strong><span>Monthly changes and drawdowns</span></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <div class="phone" role="img" aria-label="New entry screen preview: a sheet for date, total assets, cash flow, and a note">
+                <div class="screen" aria-hidden="true" style="background:var(--bg-alt)">
+                  <div class="card" style="margin-top:40px;border-radius:22px">
+                    <div class="sheet-handle"></div>
+                    <div style="font-weight:800;font-size:15px;margin-bottom:10px">New entry</div>
+                    <div class="field"><div class="label">Date</div><div class="v">Oct 9, 2026</div></div>
+                    <div class="field"><div class="label">Total assets</div><div class="v num">$84,620</div></div>
+                    <div class="field"><div class="label">Cash flow</div><div class="toggle"><span class="on">Deposit</span><span>Withdrawal</span></div><div class="v num" style="margin-top:6px">$500</div></div>
+                    <div class="field"><div class="label">Note</div><div class="v" style="font-weight:500;font-size:13px">Monthly contribution</div></div>
+                    <div class="save">Save</div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><strong>New entry</strong><span>Enter your total and you're done</span></figcaption>
+            </figure>
+          </li>
+        </ul>
+        <p class="swipe-hint">← Swipe to see more →</p>
+        <p class="footnote">Screens are illustrative. Amounts are sample data.</p>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="section" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap">
+        <div class="head">
+          <p class="eyebrow">PRIVACY</p>
+          <h2 id="privacy-title">Your numbers.<br />Your device.</h2>
+        </div>
+        <div class="trust-grid">
+          <article class="trust"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span><h3>Stored on your iPhone</h3><p>No sign-up and no bank connections. Your records are saved on your device.</p></article>
+          <article class="trust"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Locked with Face ID</h3><p>With app lock on, your content is hidden in the app switcher, too.</p></article>
+          <article class="trust"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Amounts on your terms</h3><p>Mask amounts and changes as “****” while keeping percentages visible.</p></article>
+          <article class="trust"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Your entries stay private</h3><p>Amounts, cash flow, and notes are never sent to usage analytics.</p></article>
+        </div>
+        <p class="footnote">The free version shows ads. Deleting the app also deletes your records, so export a JSON backup before switching phones.</p>
+        <a class="text-link" href="./privacy.html">Read the Privacy Policy <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="wrap">
+        <div class="final-card">
+          <img class="icon" src="../images/app-icon.png" alt="AssetTrail app icon" width="76" height="76" />
+          <h2 id="final-title">Start your trail today.</h2>
+          <p>AssetTrail for iPhone · Free to download</p>
+          <a class="badge" href="https://apps.apple.com/jp/app/id6816013644">
+            <img src="../images/app-store-badge-en.svg" alt="Download on the App Store" width="168" height="56" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./support.html">Support</a>
+        <a href="mailto:assettrail.info@gmail.com">Contact</a>
+        <a href="../" lang="ja" hreflang="ja">日本語</a>
+      </nav>
+      <small>© AssetTrail</small>
+    </div>
+  </footer>
 </body>
 </html>
