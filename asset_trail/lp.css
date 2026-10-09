@@ -50,7 +50,7 @@ body {
   font-feature-settings: "palt";
 }
 :lang(en) body, body:lang(en) { font-feature-settings: normal; }
-img, svg { display: block; max-width: 100%; }
+img, svg { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
 a:focus-visible, button:focus-visible {
   outline: 3px solid var(--teal-strong);
