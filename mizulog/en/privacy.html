@@ -38,7 +38,7 @@
 </head>
 <body>
   <h1>Privacy Policy - mizu:log</h1>
-  <p><small>Last updated: July 20, 2026</small></p>
+  <p><small>Last updated: November 14, 2026</small></p>
 
   <p>
     This Privacy Policy describes how the mobile application "mizu:log" (the "App")
@@ -58,7 +58,7 @@
   <p><strong>Important:</strong></p>
   <p>
     This data is primarily stored locally on your device (e.g., using local databases such as Hive).
-    However, when you use AI features (plant identification or diagnosis), photo data is transmitted to third-party servers (see Section 1-5).
+    However, when you use AI features (plant identification or diagnosis), photo data is transmitted to third-party servers (see Section 1-5). When you use the weather feature, coordinates for the configured location are sent to Apple WeatherKit via Firebase (see Section 1-7).
   </p>
 
   <h3>1-2. Information collected by third-party services (Advertising)</h3>
@@ -153,6 +153,21 @@
     to Apple's servers to verify the transaction. The verification result (purchase status) is stored on Firebase.
   </p>
 
+  <h3>1-7. Information Transmitted and Stored for the Weather Feature</h3>
+  <p>
+    When you enable the weather feature, the latitude and longitude of the representative point for your configured location, along with your language setting, are sent through Firebase Cloud Functions to Apple WeatherKit to retrieve weather information. Anonymous authentication and App Check are used for access to Firebase.
+  </p>
+  <p>
+    Retrieved weather information is temporarily cached in Firebase Firestore to reduce repeated requests. When you save a care record, the day's weather and high/low temperatures may also be included in the record stored locally on your device.
+  </p>
+  <p>
+    To prevent excessive weather requests, a SHA-256 hash of your anonymous authentication UID and the time of the last upstream weather request are stored in Firebase. These data are used to provide the weather feature, manage its cache, and prevent abuse.
+  </p>
+  <ul>
+    <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple Privacy Policy</a></li>
+    <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase Privacy and Security</a></li>
+  </ul>
+
   <h2>2. Purpose of Use</h2>
   <p>We use the collected information for the following purposes:</p>
   <ol>
@@ -163,6 +178,7 @@
     <li>To recommend items useful for plant care</li>
     <li>To provide AI-powered plant identification and diagnosis results</li>
     <li>To verify in-app purchases and manage purchase status</li>
+    <li>To provide weather information, limit request frequency, and prevent abuse</li>
   </ol>
 
   <h2>3. Data Sharing</h2>
@@ -173,14 +189,14 @@
     However, as described above, third-party services such as Google may automatically collect
     certain technical information for advertising purposes.
     Firebase Analytics may also send app usage information to Google for analytics purposes.
-    As described in Section 1-5, photo data may also be sent to OpenAI when using AI features.
+    As described in Section 1-5, photo data may also be sent to OpenAI when using AI features. As described in Section 1-7, coordinates for the configured location are sent to Apple WeatherKit via Firebase when using the weather feature.
     We may also disclose information if required by law.
   </p>
 
   <h2>4. International Data Transfers</h2>
   <p>
-    Information collected through third-party services such as Google AdMob, Firebase Analytics, and the OpenAI API
-    may be processed by Google LLC, OpenAI, LLC, their affiliates, advertising partners, and service providers
+    Information collected through third-party services such as Google AdMob, Firebase Analytics, the OpenAI API, and Apple WeatherKit
+    may be processed by Google LLC, OpenAI, LLC, Apple Inc., their affiliates, advertising partners, and service providers
     in countries or regions outside your country of residence.
     Please refer to the privacy policies of those third-party service providers for details.
   </p>
@@ -196,6 +212,10 @@
   <p>
     Information collected by third-party services such as Google AdMob and Firebase Analytics
     is retained in accordance with those service providers' policies.
+  </p>
+
+  <p>
+    Weather cache data is treated as valid for 15 minutes after retrieval. Expiration is used to decide whether data may be reused; it does not mean that the Firestore document is automatically deleted at that time. Cache records may remain until overwritten or deleted. The UID hash and last-request timestamp used for rate limiting are also retained in Firebase until overwritten or deleted.
   </p>
 
   <h2>6. User Control</h2>
